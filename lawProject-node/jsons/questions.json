@@ -1,0 +1,30 @@
+{
+    "questions":[
+        {
+            "id":"1",
+            "text":"כמה מגניב אתה",
+            "label":"רמת מגניבות",
+            "type":"v-text-field",
+            "required": false,
+            "rules": []
+        },
+        {
+            "id":"2",
+            "text":"כמה אתה מצפה להוריש",
+            "label":"כסף בשקלים",
+            "prefix": "₪",
+            "type":"v-text-field",
+            "required": true,
+            "rules": ["number"]
+        },
+        {
+            "id":"3",
+            "text":"האם אתה פוחד ממישהו?",
+            "label":"הוא מפחיד רצח",
+            "type":"v-select",
+            "items":"people",
+            "required": false,
+            "rules": []
+        }
+    ]    
+}
