@@ -2,12 +2,12 @@
     "pages": [
         {
             "id" : "firstQuestions",
-            "title": "שאלות ראשונות",
+            "title": "תהליך הירושה",
             "questions":[
                 {
                     "id":"1",
-                    "text":"כמה מגניב אתה",
-                    "label":"רמת מגניבות",
+                    "text":"תאר קיצד אתה רוצה שתהליך הירושה יתרחש",
+                    "label":"תהליך הירושה",
                     "type":"v-text-field",
                     "required": false,
                     "rules": []
@@ -23,8 +23,8 @@
                 },
                 {
                     "id":"3",
-                    "text":"האם אתה פוחד ממישהו?",
-                    "label":"הוא מפחיד רצח",
+                    "text":"למי לפנות ראשון בנוגע לקבלת הירושה?",
+                    "label":"הראשון זוכה",
                     "type":"v-select",
                     "itemsId":"people",
                     "required": false,
@@ -34,23 +34,24 @@
         },
         {
             "id" : "secondQuestions",
-            "title": "שאלות שניות",
+            "title": "תביעות צפויות",
             "questions":[
                 {
                     "id":"4",
-                    "text":"האם אתה חושד מלמות בקרוב?",
-                    "label":"הסוף קרוב",
+                    "text":"האם אתה מצפה שמישהו ינסה לתבוע בשביל הירושה?",
+                    "label":"איתכן תביעה",
                     "type":"v-checkbox",
                     "required": false,
                     "rules": []
                 },
                 {
                     "id":"5",
-                    "text":"כמה זמן נראה לך נשאר לך?",
-                    "label":"מספר בשנים",
-                    "type":"v-text-field",
+                    "text":"אם כן מי?",
+                    "label":"תובע צפוי",
+                    "type":"v-select",
                     "required": false,
-                    "rules": ["number"],
+                    "itemsId":"people",
+                    "rules": [],
                     "enabledBy": ["4"]
                 }
             ]
