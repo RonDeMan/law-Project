@@ -1,30 +1,59 @@
 {
-    "questions":[
+    "pages": [
         {
-            "id":"1",
-            "text":"כמה מגניב אתה",
-            "label":"רמת מגניבות",
-            "type":"v-text-field",
-            "required": false,
-            "rules": []
+            "id" : "firstQuestions",
+            "title": "שאלות ראשונות",
+            "questions":[
+                {
+                    "id":"1",
+                    "text":"כמה מגניב אתה",
+                    "label":"רמת מגניבות",
+                    "type":"v-text-field",
+                    "required": false,
+                    "rules": []
+                },
+                {
+                    "id":"2",
+                    "text":"כמה אתה מצפה להוריש",
+                    "label":"כסף בשקלים",
+                    "prefix": "₪",
+                    "type":"v-text-field",
+                    "required": true,
+                    "rules": ["number"]
+                },
+                {
+                    "id":"3",
+                    "text":"האם אתה פוחד ממישהו?",
+                    "label":"הוא מפחיד רצח",
+                    "type":"v-select",
+                    "itemsId":"people",
+                    "required": false,
+                    "rules": []
+                }
+            ]
         },
         {
-            "id":"2",
-            "text":"כמה אתה מצפה להוריש",
-            "label":"כסף בשקלים",
-            "prefix": "₪",
-            "type":"v-text-field",
-            "required": true,
-            "rules": ["number"]
-        },
-        {
-            "id":"3",
-            "text":"האם אתה פוחד ממישהו?",
-            "label":"הוא מפחיד רצח",
-            "type":"v-select",
-            "items":"people",
-            "required": false,
-            "rules": []
+            "id" : "secondQuestions",
+            "title": "שאלות שניות",
+            "questions":[
+                {
+                    "id":"4",
+                    "text":"האם אתה חושד מלמות בקרוב?",
+                    "label":"הסוף קרוב",
+                    "type":"v-checkbox",
+                    "required": false,
+                    "rules": []
+                },
+                {
+                    "id":"5",
+                    "text":"כמה זמן נראה לך נשאר לך?",
+                    "label":"מספר בשנים",
+                    "type":"v-text-field",
+                    "required": false,
+                    "rules": ["number"],
+                    "enabledBy": ["4"]
+                }
+            ]
         }
-    ]    
+    ] 
 }
