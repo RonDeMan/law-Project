@@ -1,10 +1,10 @@
 <template>
     <component :value="value" :is="type" :label="label"  @change="$emit('input',$event)"
-                   :prefix="prefix" :items="items" :rules="rules" :disabled="disabled" />
+                   :prefix="prefix" :items="items" :rules="rules" :disabled="disabled" filled/>
 </template>
 
 <script>
-import { VTextField,VSelect,VCheckbox } from 'vuetify/lib'
+import { VTextField,VSelect,VCheckbox,VTextarea } from 'vuetify/lib'
 
 export default {
     name:"genericInput",
@@ -20,7 +20,8 @@ export default {
     components:{
       VTextField,
       VSelect,
-      VCheckbox
+      VCheckbox,
+      VTextarea
     },
 }
 </script>

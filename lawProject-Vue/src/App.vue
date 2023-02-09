@@ -62,7 +62,8 @@ export default {
             case "people":
               {
                 let person = this.getPeople[answer.answer]
-                return person.nickname == 0? `${person.firstName} ${person.lastName}` : this.getNicknames[person.nickname].text
+                return person.nickname == 0? `${person.firstName} ${person.lastName}` :
+                                             this.getNicknames[person.nickname].text
               }
             default:
               return "הסלקט הזה לא קיים"

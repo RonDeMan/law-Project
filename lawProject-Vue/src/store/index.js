@@ -41,6 +41,33 @@ export default new Vuex.Store({
       {text: "אחר", value:8}
     ],
 
+    bonds:[
+      {text:"טובה", value:"1"},
+      {text:"טובה מאוד", value:"2"},
+      {text:"סבירה", value:"3"},
+      {text:"גרועה", value:"4"}
+    ],
+
+    transportation:[
+      {text:"רכב פרטי", value:"1"},
+      {text:"מונית", value:"2"},
+      {text:"תחבורה ציבורית", value:"3"},
+      {text:"ברגל", value:"4"},
+      {text:"אחר", value:"5"}
+    ],
+    maritalStatus:[
+      {text:"נשוי", value:"1"},
+      {text:"רווק", value:"2"},
+      {text:"גרוש", value:"3"},
+      {text:"אלמן", value:"4"},
+      {text:"ידוע בציבור", value:"5"}
+    ],
+    communication:[
+      {text:"טוב מאוד", value:"1"},
+      {text:"ממוצע", value:"2"},
+      {text:"לא בקשר", value:"3"}
+    ],
+
     questions:[],
     questionAnswers:[],
   },
@@ -51,14 +78,28 @@ export default new Vuex.Store({
 
     getQuestions(state){
       let questions = []
-      state.questions.forEach(page => page.questions.forEach(question=> questions.push(question)))
+      state.questions.forEach(page => 
+                page.questionRows.forEach(questionRow=> 
+                                        questionRow.questions.forEach(question =>
+                                                                      questions.push(question))))
       return questions
     },
 
     getRelationships(state){
       return state.relationships
     },
-
+    getBonds(state){
+      return state.bonds
+    },
+    getTransportation(state){
+      return state.transportation
+    },
+    getMaritalStatus(state){
+      return state.maritalStatus
+    },
+    getCommunication(state){
+      return state.communication
+    },
     getNicknames(state){
       return state.nicknames
     },
@@ -113,7 +154,7 @@ export default new Vuex.Store({
     },
 
     setQuestionAnswer(context, {id,answer}){
-      console.log(id)
+      console.log(id, answer)
       context.commit("setQuestionAnswer", {id, answer})
     },
     setQuestions(context,questions){

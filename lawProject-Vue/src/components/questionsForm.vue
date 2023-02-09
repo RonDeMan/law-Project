@@ -1,9 +1,12 @@
 <template>
     <div>
-        <div v-for="question in getPageQuestions" :key="question.id">
-            <questionBox :question="question"  @answerChange="answerChange(question.id, $event )" 
+        <!-- <div v-for="question in getPageQuestions" :key="question.id">
+            <questionBox :question="question"  @answerChange="answerChange($event )" 
                 :answer="getQuestionAnswers.find(answer => answer.id == question.id)?.answer || ''"
                 :disabled="isDisabled(question)"/>
+        </div> -->
+        <div v-for="questionRow in getPageQuestionRows" :key="questionRow.id">
+            <questionRow :questionRow="questionRow" @answerChange="answerChange($event)" />
         </div>
     </div>
 </template>
@@ -11,10 +14,11 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 
-    import questionBox from './questionBox.vue'
+    // import questionBox from './questionBox.vue'
+    import questionRow from './questionRow.vue'
 export default {
     name:"questionsForm",
-    components:{questionBox},
+    components:{ questionRow},
     props:{
         questionPage: {required: true}
     },
@@ -22,14 +26,14 @@ export default {
     computed:{
         ...mapGetters(["getQuestionAnswers","getQuestionPages"]),
 
-        getPageQuestions(){
-            return this.getQuestionPages.find(page=> page.id == this.questionPage).questions
+        getPageQuestionRows(){
+            return this.getQuestionPages.find(page=> page.id == this.questionPage).questionRows
         }
     },
     methods:{
         ...mapActions(["setQuestionAnswer"]),
 
-        answerChange(id, answer){
+        answerChange({id, answer}){
             this.setQuestionAnswer({id, answer})
         },
 

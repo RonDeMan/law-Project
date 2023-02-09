@@ -1,11 +1,17 @@
 <template>
   <div>
-        <h3>{{ question.text }}: {{ question.required ? '*': "" }}</h3>
+
         <!-- <component :value="answer" :is="question.type" :label="question.label"  @change="$emit('answerChange',$event)"
                    :prefix="question.prefix" :items="questionItems"  :rules="rules"> -->
                    <!-- </component> -->
-        <genericInput :value="answer" :type="question.type" :label="question.label"  @input="$emit('answerChange',$event)"
+        <genericInput v-if="!specialComponents.includes(question.type)" :value="answer" :type="question.type" 
+                   :label="question.label"  @input="$emit('answerChange',$event)"
                    :prefix="question.prefix" :items="questionItems"  :rules="rules" :disabled="disabled"/>
+
+        <vRadioGroup v-if="question.type == 'v-radio-group'" :value="answer" 
+                     @change="$emit('answerChange',$event)" row>
+            <v-radio v-for="item in questionItems" :key="item.value" :label="item.text" :value="item.value"></v-radio>
+        </vRadioGroup>
   </div>
 </template>
 
@@ -19,9 +25,15 @@ export default {
     components:{
       genericInput
     },
+    data() {
+      return {
+        specialComponents: ["v-radio-group"]
+      }
+    },
 
     computed:{
-      ...mapGetters(["getPeopleForSelect","getNicknames"]),
+      ...mapGetters(["getPeopleForSelect","getNicknames", "getBonds", "getCommunication", 
+                     "getTransportation", "getMaritalStatus"]),
 
       rules(){
         let rules = []
@@ -44,6 +56,7 @@ export default {
 
       questionItems(){
         let items = []
+        if(!this.question.itemsId) return 
 
         switch (this.question.itemsId) {
           case 'people':
@@ -53,9 +66,22 @@ export default {
               items.push({value,text})
             })
           
-
           break;
+          case 'bonds':
+            items = this.getBonds
+            break;
+
+          case 'transportation':
+            items = this.getTransportation
+            break;
+          case 'maritalStatus':
+            items = this.getMaritalStatus
+            break;
+          case 'communication':
+            items = this.getCommunication
+            break;
           default:
+            console.log("couldnt find item group")
           break;    
         }
 

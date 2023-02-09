@@ -3,7 +3,7 @@ const axios = require('axios');
   
 export async function getQuestions(){
 
-    return await axios.get('http://localhost:3000/questions').then(res=>{
+    return await axios.get('/api/questions').then(res=>{
         return res.data.pages
     })
 }
