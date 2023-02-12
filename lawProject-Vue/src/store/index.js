@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import {setAnswer} from "../DL/answers.js"
 
 Vue.use(Vuex)
 
@@ -114,6 +115,10 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    setAnswers(state,answers){
+      state.questionAnswers= answers
+    },
+
     updatePerson(state,{name,value,index}){
         state.people[index][name] = value
     },
@@ -128,6 +133,7 @@ export default new Vuex.Store({
     },
 
     setQuestionAnswer(state,{id,answer}){
+      setAnswer(id,answer)
       let questionExists = state.questionAnswers.find(answer=> answer.id == id)
       if( questionExists){
         questionExists.answer = answer
@@ -141,6 +147,10 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    setAnswers(context,answers){
+      context.commit("setAnswers", answers)
+    },
+
     addNewPerson(context){
       context.commit("addNewPerson")
     },

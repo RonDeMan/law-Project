@@ -1,6 +1,6 @@
 <template>
     <component :value="value" :is="type" :label="label"  @change="$emit('input',$event)"
-                   :prefix="prefix" :items="items" :rules="rules" :disabled="disabled" filled/>
+                :input-value="value"   :prefix="prefix" :items="items" :rules="rules" :disabled="disabled" filled/>
 </template>
 
 <script>

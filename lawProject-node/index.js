@@ -2,7 +2,18 @@ const express = require("express");
 const bodyParser = require('body-parser')
 const cookieSession = require("cookie-session")
 const passport = require('passport')
+const path = require('path')
+require('dotenv').config()
 
+const mysql = require('mysql2')
+
+//connect to mysql database
+var connection = mysql.createConnection({
+    host: process.env.DATABASE_HOST,
+    user: process.env.DATABASE_USER,
+    database: "lawprojectdb",
+    password: process.env.DATABASE_PASSWORD
+  });
 
 // creating the express instance
 const app = express()
@@ -32,13 +43,13 @@ const authMiddleware = (req,res,next) => {
 //temp table for users replace with a call to the database
 let users= [
     {
-        id:1,
+        id:123456789,
         name: "רועי",
         email: "roy152@gmail.com",
         password: "asdasd123"
     },
     {
-        id:2,
+        id:322959800,
         name: "בובי בוטן",
         email: "a",
         password: "a"
@@ -83,14 +94,26 @@ app.get('/people/:id', function(req,res){
     res.end( JSON.stringify({'name': 'john', 'id':'42'}))
 })
 
-app.get('/answers/:id', function(req,res){
-    res.header("Access-Control-Allow-Origin", "*");
-    res.end( JSON.stringify({'name': 'bobo', 'id':'42'}))
+app.get('/answers', function(req,res){
+    connection.query(`SELECT * FROM questionAnswers WHERE userId=${req.session.passport.user}`,function(err,results, fields){
+        if(err) console.log(err)
+        else res.send(results)
+      })
 })
 
 app.get('/questions', function(req,res){
     // res.header("Access-Control-Allow-Origin", "*");
     res.sendFile('./jsons/questions.json', {root: __dirname})
+})
+
+app.post('/answers/:id',function(req,res){
+    let answer = req.body.answer
+    let questionId = req.params.id
+    connection.query(`INSERT INTO questionAnswers (userId, questionId, answer) VALUES (${req.session.passport.user},"${questionId}","${answer}" ) ON DUPLICATE KEY UPDATE answer="${answer}"`
+        ,function(err,results, fields){
+        if(err) console.log(err)
+        else console.log(results)
+      })
 })
 
 app.post('/login', (req,res,next) => {
@@ -114,6 +137,10 @@ app.get("/user", authMiddleware, (req,res) => {
     let user = users.find( user => user.id == req.session.passport.user)
     console.log([user,req.session])
     res.send({user})
+})
+
+app.get("/loggedIn", (req,res)=>{
+    res.send(!!req.user)
 })
 
 app.listen(port, ()=>{console.log(`listening on port ${port} `)})

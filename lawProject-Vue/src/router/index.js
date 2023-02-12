@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import loginView from '../views/LoginView.vue'
+import {isLoggedIn} from '../DL/login'
 
 Vue.use(VueRouter)
 
@@ -31,5 +32,22 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+// eslint-disable-next-line
+router.beforeEach(async (to, from, next) => {
+  let loggedIn = await isLoggedIn()
+  if (
+    // make sure the user is authenticated
+    !loggedIn &&
+    // ❗️ Avoid an infinite redirect
+    to.name !== ''
+  ) {
+    // redirect the user to the login page
+    return { name: '' }
+  }else{
+    next()
+  }
+})
+
 
 export default router

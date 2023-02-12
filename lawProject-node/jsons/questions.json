@@ -1,79 +1,6 @@
 {
     "pages": [
         {
-            "id" : "heWantPage",
-            "title": "מי הוא רוצה למנות",
-            "questionRows":[
-                {
-                    "id":"1",
-                    "header":"מי תרצה שיהיה מיופה הכוח שלך- מיהו האדם שתרצה שיפעל בהתאם להוראות, שיפורטו על ידך, ביפוי כוח?",
-                    "questions":[
-                        {
-                            "id":"wantedPerson",
-                            "label":"מיופה הכוח הרצוי",
-                            "type":"v-select",
-                            "itemsId":"people",
-                            "required": false,
-                            "rules": []
-                        }
-                    ]
-                },
-                {
-                    "id":"2",
-                    "header":"מה רמת הקשר שלך איתו/איתה?",
-                    "questions":[
-                        {
-                        "id":"bondWithWanted",
-                        "label":"רמת קשר",
-                        "type":"v-radio-group",
-                        "itemsId":"bonds",
-                        "required": true,
-                        "rules": []
-                        }
-                    ]
-                },
-                {
-                    "id":"3",
-                    "header":"עד כמה אתה סומך עליו/עליה?",
-                    "questions": [
-                        {
-                        "id":"3",
-                        "label":"תאר כמה",
-                        "type":"v-textarea",
-                        "required": false,
-                        "rules": []
-                        }
-                    ]
-                },
-                {
-                    "id":"4",
-                    "header":"האם מיפה הכוח מתגורר סמוך אליך?",
-                    "questions": [
-                        {
-                        "id":"isWantedNear",
-                        "label":"האם סמוך",
-                        "type":"v-checkbox",
-                        "required": false,
-                        "rules": []
-                        }
-                    ]
-                },
-                {
-                    "id":"5",
-                    "header":"למה בחרת בו/בה?",
-                    "questions": [
-                        {
-                        "id":"reasonWanted",
-                        "label":"תאר למה",
-                        "type":"v-textarea",
-                        "required": false,
-                        "rules": []
-                        }
-                    ]
-                }
-            ]
-        },
-        {
             "id" : "impressionOfAppointerPage",
             "title": "התרשמות מצב הממנה",
             "questionRows":[
@@ -320,6 +247,79 @@
                         "rules": []
                         }
                     ]   
+                }
+            ]
+        },
+        {
+            "id" : "heWantPage",
+            "title": "מי הוא רוצה למנות",
+            "questionRows":[
+                {
+                    "id":"1",
+                    "header":"מי תרצה שיהיה מיופה הכוח שלך- מיהו האדם שתרצה שיפעל בהתאם להוראות, שיפורטו על ידך, ביפוי כוח?",
+                    "questions":[
+                        {
+                            "id":"wantedPerson",
+                            "label":"מיופה הכוח הרצוי",
+                            "type":"v-select",
+                            "itemsId":"people",
+                            "required": false,
+                            "rules": []
+                        }
+                    ]
+                },
+                {
+                    "id":"2",
+                    "header":"מה רמת הקשר שלך איתו/איתה?",
+                    "questions":[
+                        {
+                        "id":"bondWithWanted",
+                        "label":"רמת קשר",
+                        "type":"v-radio-group",
+                        "itemsId":"bonds",
+                        "required": true,
+                        "rules": []
+                        }
+                    ]
+                },
+                {
+                    "id":"3",
+                    "header":"עד כמה אתה סומך עליו/עליה?",
+                    "questions": [
+                        {
+                        "id":"3",
+                        "label":"תאר כמה",
+                        "type":"v-textarea",
+                        "required": false,
+                        "rules": []
+                        }
+                    ]
+                },
+                {
+                    "id":"4",
+                    "header":"האם מיפה הכוח מתגורר סמוך אליך?",
+                    "questions": [
+                        {
+                        "id":"isWantedNear",
+                        "label":"האם סמוך",
+                        "type":"v-checkbox",
+                        "required": false,
+                        "rules": []
+                        }
+                    ]
+                },
+                {
+                    "id":"5",
+                    "header":"למה בחרת בו/בה?",
+                    "questions": [
+                        {
+                        "id":"reasonWanted",
+                        "label":"תאר למה",
+                        "type":"v-textarea",
+                        "required": false,
+                        "rules": []
+                        }
+                    ]
                 }
             ]
         }

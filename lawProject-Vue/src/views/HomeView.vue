@@ -12,7 +12,8 @@
   import addPeople from '../components/addPeople.vue'
   import questionStepper from '../components/stepper.vue'
   import questionsForm from '../components/questionsForm.vue'
-import { mapGetters } from 'vuex'
+  import {getAllAnswers} from "../DL/answers.js"
+  import { mapGetters, mapActions } from 'vuex'
   export default {
     name: 'HomePage',
     data(){
@@ -20,7 +21,13 @@ import { mapGetters } from 'vuex'
         currentStep:1,
       }
     },
-
+    
+    
+    components: {
+      addPeople,
+      questionStepper,
+      questionsForm
+    },
     computed:{
       ...mapGetters(["getQuestions","getQuestionPages"]),
 
@@ -40,11 +47,16 @@ import { mapGetters } from 'vuex'
         return this.getSteps[this.currentStep-1].id
       }
     },
-    
-    components: {
-      addPeople,
-      questionStepper,
-      questionsForm
-    },
+
+    methods:{
+        ...mapActions(["setAnswers"])
+      },
+
+    mounted(){
+      getAllAnswers().then(res=>{
+        this.setAnswers(res)
+      }
+      )
+    }
   }
 </script>

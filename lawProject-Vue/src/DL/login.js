@@ -31,3 +31,10 @@ export async function getUserInfo(){
         throw errors
     })
 }
+
+export async function isLoggedIn(){
+    return await axios.get('api/loggedIn').then(res=>{
+        console.log(res.data)
+        return res.data
+    })
+}
