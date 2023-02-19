@@ -17,7 +17,7 @@ var connection = mysql.createConnection({
 
 // creating the express instance
 const app = express()
-const port = 80
+const port = 8080 
 
 // getting the local authentication type
 const LocalStrategy = require('passport-local').Strategy
