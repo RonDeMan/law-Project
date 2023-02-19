@@ -11,13 +11,13 @@ const mysql = require('mysql2')
 var connection = mysql.createConnection({
     host: process.env.DATABASE_HOST,
     user: process.env.DATABASE_USER,
-    database: "lawprojectdb",
+    database: process.env.DATABASE_NAME,
     password: process.env.DATABASE_PASSWORD
   });
 
 // creating the express instance
 const app = express()
-const port = 3000
+const port = 80
 
 // getting the local authentication type
 const LocalStrategy = require('passport-local').Strategy
@@ -102,7 +102,7 @@ app.get('/answers', function(req,res){
 })
 
 app.get('/questions', function(req,res){
-    // res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Origin", "*");
     res.sendFile('./jsons/questions.json', {root: __dirname})
 })
 
