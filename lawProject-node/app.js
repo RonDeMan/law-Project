@@ -6,7 +6,7 @@ const path = require('path')
 require('dotenv').config()
 
 const mysql = require('mysql2')
-
+console.log(process.env.AWSDB_HOST)
 //connect to mysql database
 var connection = mysql.createConnection({
     host: process.env.AWSDB_HOST,
