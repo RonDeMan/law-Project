@@ -9,10 +9,10 @@ const mysql = require('mysql2')
 
 //connect to mysql database
 var connection = mysql.createConnection({
-    host: process.env.DATABASE_HOST,
-    user: process.env.DATABASE_USER,
-    database: process.env.DATABASE_NAME,
-    password: process.env.DATABASE_PASSWORD
+    host: process.env.AWSDB_HOST,
+    user: process.env.AWSDB_USER,
+    // database: process.env.DATABASE_NAME,
+    password: process.env.AWSDB_PASSWORD
   });
 
 // creating the express instance
