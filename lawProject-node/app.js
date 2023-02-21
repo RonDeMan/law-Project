@@ -15,6 +15,11 @@ var connection = mysql.createConnection({
     password: process.env.DATABASE_PASSWORD
   });
 
+  connection.query(`SELECT * FROM questionAnswers`,function(err,results, fields){
+    if(err) console.log(err)
+    else console.log(results)
+  })
+
 // creating the express instance
 const app = express()
 const port = 8080 
