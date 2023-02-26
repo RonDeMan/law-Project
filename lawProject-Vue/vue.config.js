@@ -1,7 +1,7 @@
 const { defineConfig } = require('@vue/cli-service')
 let target =  process.env.NODE_ENV === 'development'
-    ? 'http://localhost:8080'
-    : 'http://lawproject.ben-israel.com:8080'
+                ? 'http://localhost:8080'
+                : 'http://lawprojectnode-env.eba-ph3nyhch.eu-west-3.elasticbeanstalk.com'
 
     console.log(target)
 
@@ -11,7 +11,7 @@ defineConfig({
     devServer: {
       proxy: {
         "/api": {
-          // target: "http://lawproject.ben-israel.com:8080",
+          // target: "http://lawprojectnode-env.eba-ph3nyhch.eu-west-3.elasticbeanstalk.com",
           target: target,
           pathRewrite: { "^/api": "" },
           changeOrigin: true,

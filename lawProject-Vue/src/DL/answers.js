@@ -1,14 +1,16 @@
 const axios = require('axios');
-
+let target =  process.env.NODE_ENV === 'development'
+                ? 'http://localhost:8080'
+                : 'http://lawprojectnode-env.eba-ph3nyhch.eu-west-3.elasticbeanstalk.com'
   
 export async function setAnswer(questionId, answer){
-    return await axios.post(`/api/answers/${questionId}`,{answer}).then(res=>{
+    return await axios.post(`${target}/answers/${questionId}`,{answer}).then(res=>{
         console.log(res)
     })
 }
 
 export async function getAllAnswers(){
-    return await axios.get('/api/answers').then(res=>{
+    return await axios.get(`${target}/answers`).then(res=>{
         console.log(res.data)
         return res.data.map(answer=> {
             let clientAnswer = answer.answer
