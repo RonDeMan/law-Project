@@ -8,12 +8,12 @@ require('dotenv').config()
 const mysql = require('mysql2')
 
 //connect to mysql database
-var connection = mysql.createConnection({
-    host: process.env.AWSDB_HOST,
-    user: process.env.AWSDB_USER,
-    password: process.env.AWSDB_PASSWORD,
-    database: process.env.AWSDB_NAME
-  });
+// var connection = mysql.createConnection({
+//     host: process.env.AWSDB_HOST,
+//     user: process.env.AWSDB_USER,
+//     password: process.env.AWSDB_PASSWORD,
+//     database: process.env.AWSDB_NAME
+//   });
 
 // var connection = mysql.createConnection({
 //     host: process.env.DATABASE_HOST,
@@ -22,10 +22,10 @@ var connection = mysql.createConnection({
 //     password: process.env.DATABASE_PASSWORD
 //   });
 
-  connection.query(`SELECT * FROM questionAnswers`,function(err,results, fields){
-    if(err) console.log(err)
-    else console.log(results)
-  })
+//   connection.query(`SELECT * FROM questionAnswers`,function(err,results, fields){
+//     if(err) console.log(err)
+//     else console.log(results)
+//   })
 
 // creating the express instance
 const app = express()
@@ -42,7 +42,7 @@ app.use(cookieSession({
     name: "mysession",
     keys:['vueauthrandomkey'],
     secure: true,
-    sameSite: "none",
+    // sameSite: "none",
     maxAge: 24*60*60*1000 //24 hours
 }))
 
