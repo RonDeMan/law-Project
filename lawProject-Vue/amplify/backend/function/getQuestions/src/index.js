@@ -10,7 +10,7 @@ exports.handler = async (event) => {
 
     let questions
 
-    await fs.readFile(".../jsons/questions.json", "utf8",(err, questionsJson)=>{
+    await fs.readFile("../../jsons/questions.json", "utf8",(err, questionsJson)=>{
         console.log(err)
         console.log(questions)
         questions= questionsJson
