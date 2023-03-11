@@ -9,6 +9,14 @@
           ],
           "category": "function",
           "resourceName": "lawProjectUsersId"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "getQuestions"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -16,6 +24,11 @@
     }
   },
   "function": {
+    "getQuestions": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "lawProjectUsersId": {
       "build": true,
       "dependsOn": [],
