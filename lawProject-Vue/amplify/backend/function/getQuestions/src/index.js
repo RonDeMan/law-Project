@@ -4,7 +4,6 @@
  * @type {import('@types/aws-lambda').APIGatewayProxyHandler}
  */
 
-import questions from "./jsons/questions.json"
 exports.handler = async (event) => {
     console.log(`EVENT: ${JSON.stringify(event)}`);
 
