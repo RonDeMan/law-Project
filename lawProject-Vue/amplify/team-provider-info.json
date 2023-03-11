@@ -17,7 +17,10 @@
           "deploymentBucketName": "amplify-lawprojectvue-dev-125715-deployment",
           "s3Key": "amplify-builds/lawProjectUsersId-484a3252475757527862-build.zip"
         },
-        "getQuestions": {}
+        "getQuestions": {
+          "deploymentBucketName": "amplify-lawprojectvue-dev-125715-deployment",
+          "s3Key": "amplify-builds/getQuestions-4c322f302b4a4c386154-build.zip"
+        }
       },
       "api": {
         "apiLawProject": {}

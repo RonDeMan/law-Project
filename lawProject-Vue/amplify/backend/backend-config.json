@@ -44,6 +44,22 @@
     }
   },
   "parameters": {
+    "AMPLIFY_function_getQuestions_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getQuestions"
+        }
+      ]
+    },
+    "AMPLIFY_function_getQuestions_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getQuestions"
+        }
+      ]
+    },
     "AMPLIFY_function_lawProjectUsersId_deploymentBucketName": {
       "usedBy": [
         {
