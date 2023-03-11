@@ -6,8 +6,8 @@
 
 exports.handler = async (event) => {
     console.log(`EVENT: ${JSON.stringify(event)}`);
-
-    return await $.getJSON("./jsons/questions.json",json=>{
+    const fs = require(`fs`)
+    return await fs.readFile("./jsons/questions.json", "utf8",(err, questions)=>{
         return {
             statusCode: 200,
         //  Uncomment below to enable CORS requests
