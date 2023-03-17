@@ -1,0 +1,13 @@
+{
+  "resourceName": "questions",
+  "policyUUID": "2ba601e6",
+  "bucketName": "lawprojectvuequestionsbucket",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}

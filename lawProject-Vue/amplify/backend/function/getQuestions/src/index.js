@@ -3,19 +3,17 @@
 /**
  * @type {import('@types/aws-lambda').APIGatewayProxyHandler}
  */
+import { Storage } from 'aws-amplify';
 
 exports.handler = async (event) => {
     console.log(`EVENT: ${JSON.stringify(event)}`);
     const fs = require(`fs`)
 
     let questions
-
-    await fs.readFile("../../jsons/questions.json", "utf8",(err, questionsJson)=>{
-        console.log(err)
+    
+    return Storage.get("private/questions.json").then(questionsjson=>{
+        question = questionsjson
         console.log(questions)
-        questions= questionsJson
-    })
-    console.log(questions)
     return {
         statusCode: 200,
     //  Uncomment below to enable CORS requests
@@ -25,5 +23,8 @@ exports.handler = async (event) => {
     //  }, 
         body: JSON.stringify(questions),
     };
+    })
+
+    
     
 };

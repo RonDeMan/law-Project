@@ -30,6 +30,9 @@
           "appId": "d1azefa28p3ue2",
           "type": "cicd"
         }
+      },
+      "auth": {
+        "lawprojectvue850d3cef": {}
       }
     }
   }

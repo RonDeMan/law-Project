@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import loginView from '../views/LoginView.vue'
+import loginView2 from '../views/LoginView2.vue'
 // import {isLoggedIn} from '../DL/login'
 
 Vue.use(VueRouter)
@@ -10,7 +10,7 @@ const routes = [
   {
     path: '/',
     name: 'loginView',
-    component: loginView
+    component: loginView2
   },
   {
     path: '/Home',
